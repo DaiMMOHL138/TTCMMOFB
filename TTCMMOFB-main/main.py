@@ -124,7 +124,7 @@ class Main():
                                         self.coin += 1100
                                         self.tong_jobs += 1
                                         self.save_jobs += 1
-                                        print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime('%H:%M:%S', time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+1100|{colorama.Fore.MAGENTA}LIKE VIP        ')
+                                        print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+1100|{colorama.Fore.MAGENTA}LIKE VIP        ')
                                         delay(randint(min_delay,max_delay))
                                     if self.save_jobs >= int(self.jobs_len):
                                         print(colorama.Fore.GREEN + f"Đã hoàn thành {self.save_jobs} jobs, chuyển acc mới...")
@@ -156,7 +156,7 @@ class Main():
                                         self.coin += 400
                                         self.tong_jobs += 1
                                         self.save_jobs += 1
-                                        print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime('%H:%M:%S', time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+400|{colorama.Fore.MAGENTA}LIKE RE        ')
+                                        print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+400|{colorama.Fore.MAGENTA}LIKE RE        ')
                                         delay(randint(min_delay,max_delay))
                                     if self.save_jobs >= int(self.jobs_len):
                                         print(colorama.Fore.GREEN + f"Đã hoàn thành {self.save_jobs} jobs, chuyển acc mới...")
@@ -188,7 +188,7 @@ class Main():
                                         self.coin += 1100
                                         self.tong_jobs += 1
                                         self.save_jobs += 1
-                                        print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime('%H:%M:%S', time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+1100|{colorama.Fore.MAGENTA}CX VIP        ')
+                                        print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+1100|{colorama.Fore.MAGENTA}CX VIP        ')
                                         delay(randint(min_delay,max_delay))
                                     if self.save_jobs >= int(self.jobs_len):
                                         print(colorama.Fore.GREEN + f"Đã hoàn thành {self.save_jobs} jobs, chuyển acc mới...")
@@ -221,7 +221,7 @@ class Main():
                                         self.coin += 400
                                         self.tong_jobs += 1
                                         self.save_jobs += 1
-                                        print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime('%H:%M:%S', time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+400|{colorama.Fore.MAGENTA}CX RE         ')
+                                        print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+400|{colorama.Fore.MAGENTA}CX RE         ')
                                         delay(randint(min_delay,max_delay))
                                     if self.save_jobs >= int(self.jobs_len):
                                         print(colorama.Fore.GREEN + f"Đã hoàn thành {self.save_jobs} jobs, chuyển acc mới...")
