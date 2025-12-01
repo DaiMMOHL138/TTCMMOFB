@@ -1,56 +1,45 @@
-import cloudscraper
+import requests
 import json
 import sys
 
 class requests_fb:
     def __init__(self,cookie):
-        self.httpx = cloudscraper.create_scraper(
-                browser={
-                    'browser': 'chrome',
-                    'platform': 'windows',
-                    'mobile': False
-                }
-            )
-        self.header_get = {
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
-            "accept-language": "en-US,en;q=0.9",
-            "cache-control": "max-age=0",
-            "cookie": cookie,
-            "referer": "https://www.facebook.com/",
-            "sec-ch-ua": '"Google Chrome";v="137", "Chromium";v="137", "Not.A/Brand";v="24"',
-            "sec-ch-ua-full-version-list": '"Google Chrome";v="137.0.7151.120", "Chromium";v="137.0.7151.120", "Not.A/Brand";v="24.0.0.0"',
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": "Windows",
-            "sec-ch-ua-platform-version": "10.0.0",
-            "sec-fetch-dest": "document",
-            "sec-fetch-mode": "navigate",
-            "sec-fetch-site": "none",
-            "sec-fetch-user": "?1",
-            "upgrade-insecure-requests": "1"
-        }
+        self.httpx = requests.Session()
+        for item in cookie.split(";"):
+            if "=" in item:
+                name,value = item.strip().split("=",1)
+                if "c_user" == name:
+                    self.id_fb = value
+                self.httpx.cookies.set(name,value)
+        self.httpx.headers.update({
+            'accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'accept-language':'en-GB,en-US;q=0.9,en;q=0.8',
+            'dpr': '1',
+            'referer': 'https://www.facebook.com',
+            'priority':'u=0, i',
+            'sec-ch-prefers-color-scheme':'light',
+            'sec-ch-ua':'"Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"',
+            'sec-ch-ua-full-version-list':'"Chromium";v="142.0.7444.176", "Google Chrome";v="142.0.7444.176", "Not_A Brand";v="99.0.0.0"',
+            'sec-ch-ua-mobile':'?0',
+            'sec-ch-ua-model':'cors',
+            'sec-ch-ua-platform':'"Windows"',
+            'sec-ch-ua-platform-version':'"10.0.0"',
+            'sec-fetch-dest':'document',
+            'sec-fetch-mode':'navigate',
+            'sec-fetch-site':'same-origin',
+            'sec-fetch-user':'?1',
+            'upgrade-insecure-requests':'1',
+            'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36',
+        })
 
         self.header_post = {
             "accept": "*/*",
-            "accept-language": "en-US,en;q=0.9",
             "content-type": "application/x-www-form-urlencoded",
-            "cookie": cookie,
-            "origin": "https://www.facebook.com",
-            "referer": "https://www.facebook.com/",
-            "sec-ch-ua": '"Google Chrome";v="137", "Chromium";v="137", "Not.A/Brand";v="24"',
-            "sec-ch-ua-full-version-list": '"Google Chrome";v="137.0.7151.120", "Chromium";v="137.0.7151.120", "Not.A/Brand";v="24.0.0.0"',
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": "Windows",
-            "sec-ch-ua-platform-version": "10.0.0",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-origin",
-            "pragma": "no-cache"
         }
 
 
-    def auto_like(self,cookie_fb,id,type,proxies):
+    def auto_like(self,id,type,proxies):
         
-        id_fb = cookie_fb.split('c_user=')[1].split(';')[0]
         id_ads = id
         type_id = "1635855486666999"
         if (type == "LOVE"):
@@ -67,11 +56,11 @@ class requests_fb:
             type_id = "444813342392137"
             
 
-        fake_link = self.httpx.get(url = f'https://www.facebook.com/{id_ads}',headers = self.header_get,proxies=proxies).url
+        fake_link = self.httpx.get(url = f'https://www.facebook.com/{id_ads}',proxies=proxies).url
 
-        form = self.httpx.get(url=f'{fake_link}',headers=self.header_get,proxies=proxies).text
+        form = self.httpx.get(url=f'{fake_link}',proxies=proxies).text
         try:
-            fb_dtsg = form.split('"w":0,"f":"')[1].split('",')[0]
+            fb_dtsg = form.split('"f":"')[1].split('",')[0]
             jazoest = form.split('comet_req=15&jazoest=')[1].split('",')[0]
             lsd     = form.split('["LSD",[],{"token":"')[1].split('"}')[0]
             feelback = form.split('"feedback":{"id":"')[1].split('"')[0]
@@ -85,8 +74,8 @@ class requests_fb:
         
 
         data = {
-            "av": f"{id_fb}",
-            "__user": f"{id_fb}",
+            "av": f"{self.id_fb}",
+            "__user": f"{self.id_fb}",
             "fb_dtsg": f"{fb_dtsg}",
             "jazoest": f"{jazoest}",
             "lsd": f"{lsd}",
@@ -101,7 +90,7 @@ class requests_fb:
                     "feedback_source": "TAHOE",
                     "is_tracking_encrypted": True,
                     "tracking": [],
-                    "actor_id": f"{id_fb}",
+                    "actor_id": f"{self.id_fb}",
                     "client_mutation_id": "1"
                 },
                 "useDefaultActor": False,
@@ -109,20 +98,21 @@ class requests_fb:
             }),
             "server_timestamps": True
         }
+        try:
+            response = self.httpx.post(url="https://www.facebook.com/api/graphql/",headers = self.header_post,data=data,proxies=proxies,timeout=1)
+        except:
+            pass
 
-        response = self.httpx.post(url="https://www.facebook.com/api/graphql/",headers = self.header_post,data=data,proxies=proxies)
+    def auto_comment(self,id,Text, proxies):
 
-    def auto_comment(self,cookie_fb,id,Text, proxies):
-
-        id_fb = cookie_fb.split('c_user=')[1].split(';')[0]
         id_ads = id
             
 
-        fake_link = self.httpx.get(url = f'https://www.facebook.com/{id_ads}', headers=self.header_get,proxies=proxies).url
+        fake_link = self.httpx.get(url = f'https://www.facebook.com/{id_ads}',proxies=proxies).url
 
-        form = self.httpx.get(url=f'{fake_link}',headers=self.header_get,proxies=proxies).text
+        form = self.httpx.get(url=f'{fake_link}',proxies=proxies).text
         try:
-            fb_dtsg = form.split('"w":0,"f":"')[1].split('",')[0]
+            fb_dtsg = form.split('"f":"')[1].split('",')[0]
             jazoest = form.split('comet_req=15&jazoest=')[1].split('",')[0]
             lsd     = form.split('["LSD",[],{"token":"')[1].split('"}')[0]
             feelback = form.split('"feedback":{"id":"')[1].split('"')[0]
@@ -135,8 +125,8 @@ class requests_fb:
             return
 
         data = {
-            "av": f"{id_fb}",
-            "__user": f"{id_fb}",
+            "av": f"{self.id_fb}",
+            "__user": f"{self.id_fb}",
             "fb_dtsg": f"{fb_dtsg}",
             "jazoest": f"{jazoest}",
             "lsd": f"{lsd}",
@@ -151,7 +141,7 @@ class requests_fb:
                     "feedback_source": "TAHOE",
                     "is_tracking_encrypted": True,
                     "tracking": [],
-                    "actor_id": f"{id_fb}",
+                    "actor_id": f"{self.id_fb}",
                     "client_mutation_id": "1",
                     "message":{"ranges":[],"text":f"{Text}"}
                 },
@@ -162,8 +152,7 @@ class requests_fb:
         }
         
 
-
-        response = self.httpx.post(url="https://www.facebook.com/api/graphql/",headers = self.header_post,data=data,proxies=proxies)
-    
-
-    
+        try:
+        response = self.httpx.post(url="https://www.facebook.com/api/graphql/",headers = self.header_post,data=data,proxies=proxies,timeout=1)
+        except:
+            pass

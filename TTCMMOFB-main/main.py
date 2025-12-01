@@ -124,7 +124,7 @@ class Main():
                                         self.coin += 1100
                                         self.tong_jobs += 1
                                         self.save_jobs += 1
-                                        print(f"{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime('%H:%M:%S', time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+1100|{colorama.Fore.MAGENTA}LIKE VIP        ")
+                                        print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime('%H:%M:%S', time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+1100|{colorama.Fore.MAGENTA}LIKE VIP        ')
                                         delay(randint(min_delay,max_delay))
                                     if self.save_jobs >= int(self.jobs_len):
                                         print(colorama.Fore.GREEN + f"Đã hoàn thành {self.save_jobs} jobs, chuyển acc mới...")
@@ -156,7 +156,7 @@ class Main():
                                         self.coin += 400
                                         self.tong_jobs += 1
                                         self.save_jobs += 1
-                                        print(f"{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime('%H:%M:%S', time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+400|{colorama.Fore.MAGENTA}LIKE RE        ")
+                                        print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime('%H:%M:%S', time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+400|{colorama.Fore.MAGENTA}LIKE RE        ')
                                         delay(randint(min_delay,max_delay))
                                     if self.save_jobs >= int(self.jobs_len):
                                         print(colorama.Fore.GREEN + f"Đã hoàn thành {self.save_jobs} jobs, chuyển acc mới...")
@@ -188,7 +188,7 @@ class Main():
                                         self.coin += 1100
                                         self.tong_jobs += 1
                                         self.save_jobs += 1
-                                        print(f"{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime('%H:%M:%S', time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+1100|{colorama.Fore.MAGENTA}CX VIP        ")
+                                        print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime('%H:%M:%S', time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+1100|{colorama.Fore.MAGENTA}CX VIP        ')
                                         delay(randint(min_delay,max_delay))
                                     if self.save_jobs >= int(self.jobs_len):
                                         print(colorama.Fore.GREEN + f"Đã hoàn thành {self.save_jobs} jobs, chuyển acc mới...")
@@ -221,7 +221,7 @@ class Main():
                                         self.coin += 400
                                         self.tong_jobs += 1
                                         self.save_jobs += 1
-                                        print(f"{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime('%H:%M:%S', time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+400|{colorama.Fore.MAGENTA}CX RE         ")
+                                        print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime('%H:%M:%S', time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+400|{colorama.Fore.MAGENTA}CX RE         ')
                                         delay(randint(min_delay,max_delay))
                                     if self.save_jobs >= int(self.jobs_len):
                                         print(colorama.Fore.GREEN + f"Đã hoàn thành {self.save_jobs} jobs, chuyển acc mới...")
@@ -256,7 +256,7 @@ class Main():
                                         self.coin += 1400
                                         self.tong_jobs += 1
                                         self.save_jobs += 1
-                                        print(f"{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+1400|{colorama.Fore.MAGENTA}CMT          ")
+                                        print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{self.coin}{colorama.Fore.GREEN}|+1400|{colorama.Fore.MAGENTA}CMT          ')
                                         delay(randint(min_delay,max_delay))
                                     if self.save_jobs >= int(self.jobs_len):
                                         print(colorama.Fore.GREEN + f"Đã hoàn thành {self.save_jobs} jobs, chuyển acc mới...")
@@ -292,13 +292,13 @@ class Main():
                             link = data[n]["link"]
                             idfb = link.split('https://www.facebook.com/')[1].split('"')[0]
                             print(colorama.Fore.GREEN + f"Đang Like bài viết: {idpost}",end="\r")
-                            requests_fb(cookie_facebook).auto_like(cookie_facebook,idfb,type = "",proxies = proxies)
+                            requests_fb(cookie_facebook).auto_like(idfb,type = "",proxies = proxies)
                             delay(randint(min_delay,max_delay))
                             response = self.TTC.get_coin_jobs_like_vip(idpost,cookie)
                             if response == {"mess": "Thành công, bạn đã được cộng 1100 xu"}:
                                 coin += 1100
                                 self.tong_jobs += 1
-                                print(f"{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{coin}{colorama.Fore.GREEN}|+1100|{colorama.Fore.MAGENTA}LIKE VIP        ")
+                                print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{coin}{colorama.Fore.GREEN}|+1100|{colorama.Fore.MAGENTA}LIKE VIP        ')
                             
                                 
                         
@@ -322,13 +322,13 @@ class Main():
                             link = data[n]["link"]
                             idfb = link.split('https://www.facebook.com/')[1].split('"')[0]
                             print(colorama.Fore.GREEN + f"Đang Like bài viết: {idpost}",end="\r")
-                            requests_fb(cookie_facebook).auto_like(cookie_facebook,idfb,type = "",proxies = proxies)
+                            requests_fb(cookie_facebook).auto_like(idfb,type = "",proxies = proxies)
                             delay(randint(min_delay,max_delay))
                             response = self.TTC.get_coin_jobs_like_re(idpost,cookie)
                             if response == {"mess": "Thành công, bạn đã được cộng 400 xu"}:
                                 coin += 400
                                 self.tong_jobs += 1
-                                print(f"{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{coin}{colorama.Fore.GREEN}|+400|{colorama.Fore.MAGENTA}LIKE RE        ")
+                                print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{coin}{colorama.Fore.GREEN}|+400|{colorama.Fore.MAGENTA}LIKE RE        ')
                             
                         
                     except KeyboardInterrupt:
@@ -352,13 +352,13 @@ class Main():
                             idfb = link.split('https://www.facebook.com/')[1].split('"')[0]
                             type = data[n]["loaicx"]
                             print(colorama.Fore.GREEN + f"Đang CX bài viết: {idpost}",end="\r")
-                            requests_fb(cookie_facebook).auto_like(cookie_facebook,idfb,type = type,proxies = proxies)
+                            requests_fb(cookie_facebook).auto_like(idfb,type = type,proxies = proxies)
                             delay(randint(min_delay,max_delay))
                             response = self.TTC.get_coin_jobs_camxu_vip(type,idpost,cookie)
                             if response == {"mess": "Thành công, bạn đã được cộng 1100 xu"}:
                                 coin += 1100
                                 self.tong_jobs += 1
-                                print(f"{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{coin}{colorama.Fore.GREEN}|+1100|{colorama.Fore.MAGENTA}CX VIP        ")
+                                print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{coin}{colorama.Fore.GREEN}|+1100|{colorama.Fore.MAGENTA}CX VIP        ')
                             
                         
                     except KeyboardInterrupt:
@@ -382,13 +382,13 @@ class Main():
                             idfb = link.split('https://www.facebook.com/')[1].split('"')[0]
                             type = data[n]["loaicx"]
                             print(colorama.Fore.GREEN + f"Đang CX bài viết: {idpost}",end="\r")
-                            requests_fb(cookie_facebook).auto_like(cookie_facebook,idfb,type = type,proxies = proxies)
+                            requests_fb(cookie_facebook).auto_like(idfb,type = type,proxies = proxies)
                             delay(randint(min_delay,max_delay))
                             response = self.TTC.get_coin_jobs_camxu_re(type,idpost,cookie)
                             if response == {"mess": "Thành công, bạn đã được cộng 400 xu"}:
                                 coin += 400
                                 self.tong_jobs += 1
-                                print(f"{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{coin}{colorama.Fore.GREEN}|+400|{colorama.Fore.MAGENTA}CX RE         ")
+                                print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{coin}{colorama.Fore.GREEN}|+400|{colorama.Fore.MAGENTA}CX RE         ')
                             
                         
                     except KeyboardInterrupt:
@@ -414,13 +414,13 @@ class Main():
                                 type = data[n]["nd"]
                                 text = type.split('"')[1].split('"')[0]
                                 print(colorama.Fore.GREEN + f"Đang CMT chéo bài viết: {idpost}",end="\r")
-                                requests_fb(cookie_facebook).auto_comment(cookie_facebook,idfb,text, proxies = proxies)
+                                requests_fb(cookie_facebook).auto_comment(idfb,text, proxies = proxies)
                                 delay(randint(min_delay,max_delay))
                                 response = self.TTC.get_coin_jobs_comment(idpost,cookie)
                                 if response == {'mess': 'Thành công, bạn được cộng 1400 xu'}:
                                     coin += 1400
                                     self.tong_jobs += 1
-                                    print(f"{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{coin}{colorama.Fore.GREEN}|+1400|{colorama.Fore.MAGENTA}CMT          ")
+                                    print(f'{colorama.Fore.GREEN}{self.tong_jobs}|{colorama.Fore.YELLOW}{time.strftime("%H:%M:%S", time.localtime())}{colorama.Fore.GREEN}|{colorama.Fore.RED}{user}{colorama.Fore.GREEN}|{colorama.Fore.CYAN}{coin}{colorama.Fore.GREEN}|+1400|{colorama.Fore.MAGENTA}CMT          ')
                                 
                         except KeyboardInterrupt:
                             print(colorama.Fore.RED + "Người dùng đã dừng lại.")
